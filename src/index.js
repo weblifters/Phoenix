@@ -2,25 +2,24 @@ import React         from 'react';
 import ReactDOM      from 'react-dom';
 import { Provider }  from 'react-redux';
 import {
-  Router,
-  Route,
-  browserHistory,
-  IndexRoute
-} from 'react-router';
+      Router,
+      Route,
+      browserHistory,
+      IndexRoute
+}                    from 'react-router';
 import {
-  createStore,
-  applyMiddleware,
-  combineReducers
-} from 'redux';
+      createStore,
+      applyMiddleware,
+      combineReducers
+}                    from 'redux';
 import {
-  syncHistory,
-  routeReducer
-} from 'react-router-redux';
+      syncHistory,
+      routeReducer
+}                    from 'react-router-redux';
 import { AUTH_USER } from './actions/types';
 import ReduxPromise  from 'redux-promise';
 import reducers      from './reducers';
 import reduxThunk    from 'redux-thunk';
-
 import App           from './components/app';
 import Welcome       from './components/welcome';
 import requireAuth   from './components/auth/require_auth';
@@ -29,10 +28,8 @@ import Signup        from './components/auth/signup';
 import Signout       from './components/auth/signout';
 import Query         from './components/query';
 
-
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise, reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers);
-
 const token = localStorage.getItem('token');
 
 if (token) {

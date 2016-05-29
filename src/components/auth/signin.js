@@ -1,8 +1,7 @@
-import React from 'react';
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 import * as actions         from '../../actions';
-import { reduxForm } from 'redux-form';
+import { reduxForm }        from 'redux-form';
 
 class Signin extends Component {
   handleFormSubmit(formProps) {

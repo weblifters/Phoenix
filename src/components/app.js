@@ -13,7 +13,3 @@ export default class App extends Component {
     );
   }
 }
-
-// <h1 id="title">Enter a SQL Query</h1>
-// <SqlSubmit />
-// <QueryGrid />

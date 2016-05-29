@@ -5,9 +5,14 @@ import { connect }          from 'react-redux';
 class Header extends Component {
   renderLinks() {
     if (this.props.authenticated) {
-      return <li className="nav-item">
-        <Link className="nav-link" to="/signout">Sign Out</Link>
-      </li>
+      return [
+        <li className="nav-item">
+          <Link className="nav-link" to="/query">SQL Query</Link>
+        </li>,
+        <li className="nav-item">
+          <Link className="nav-link" to="/signout">Sign Out</Link>
+        </li>
+      ];
     } else {
       return  [
         <li className="nav-item" key={1} >

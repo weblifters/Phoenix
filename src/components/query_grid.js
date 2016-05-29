@@ -6,6 +6,10 @@ class QueryGrid extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      rowShifted: false
+    };
+
     this.exportCSV = this.exportCSV.bind(this);
   }
 
@@ -34,6 +38,7 @@ class QueryGrid extends Component {
   }
 
   render() {
+    console.log('this.props.sqlQueryResults', this.props);
     let content = <p>Enter a SQL query into the text area above to generate a report.</p>;
     if (this.props.sqlQueryResults){
       content = (
@@ -50,7 +55,9 @@ class QueryGrid extends Component {
           </thead>
           <tbody>
             {this.props.sqlQueryResults.rows.map((row, index) => {
-              row.unshift(index+1);
+              if (row.length === this.props.sqlQueryResults.metaData.length) {
+                row.unshift(index+1);
+              }
               return (<tr key={index}>
                   {row.map((column, index) => {
                     return <td key={index}>{column}</td>;
@@ -67,10 +74,10 @@ class QueryGrid extends Component {
   }
 }
 
-function query(state){
+function mapStateToProps(state){
 	return {
 		sqlQueryResults: state.sqlQueryResults
 	};
 }
 
-export default connect(query)(QueryGrid);
+export default connect(mapStateToProps)(QueryGrid);

@@ -38,7 +38,6 @@ class QueryGrid extends Component {
   }
 
   render() {
-    console.log('this.props.sqlQueryResults', this.props);
     let content = <p>Enter a SQL query into the text area above to generate a report.</p>;
     if (this.props.sqlQueryResults){
       content = (

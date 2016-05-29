@@ -23,10 +23,10 @@ import reduxThunk    from 'redux-thunk';
 
 import App           from './components/app';
 import Welcome       from './components/welcome';
-import requireAuth   from './components/HOC/require_auth';
-import Signin        from './components/signin';
-import Signup        from './components/signup';
-import Signout       from './components/signout';
+import requireAuth   from './components/auth/require_auth';
+import Signin        from './components/auth/signin';
+import Signup        from './components/auth/signup';
+import Signout       from './components/auth/signout';
 import Query         from './components/query';
 
 

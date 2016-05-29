@@ -29,6 +29,9 @@ exports.getSampleStudents = function(cb) {
 }
 
 exports.customSqlQuery = function(sqlQuery, cb) {
+  //There is an edge case where arrays of arrays are returned
+  //SELECT * FROM STUDENTS (for example)
+  //I should flatten the response before sending it to the client
   oracledb.getConnection({
     user          : credentials.user,
     password      : credentials.password,

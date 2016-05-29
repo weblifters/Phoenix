@@ -40,8 +40,7 @@ class QueryGrid extends Component {
   render() {
     let content = <p>Enter a SQL query into the text area above to generate a report.</p>;
     if (this.props.sqlQueryResults){
-      content = (
-        <div className="query-container">
+      content = <div className="query-container">
         <button className="btn btn-primary csv" onClick={this.exportCSV}>Export As CSV</button>
         <table className="table reportGrid">
           <thead className="thead-inverse">
@@ -57,17 +56,16 @@ class QueryGrid extends Component {
               if (row.length === this.props.sqlQueryResults.metaData.length) {
                 row.unshift(index+1);
               }
-              return (<tr key={index}>
+              return <tr key={index}>
                   {row.map((column, index) => {
                     return <td key={index}>{column}</td>;
                   })}
-                </tr>)
+                </tr>;
                 }
             )}
           </tbody>
         </table>
-      </div>
-      );
+      </div>;
     }
     return content;
   }

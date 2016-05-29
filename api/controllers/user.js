@@ -1,16 +1,6 @@
 const User   = require('../models/user');
 const oracle = require('./oracle');
 
-exports.getUser = function() {
-  User.findOne({username: "sunjieming"}).exec(function(err, user){
-    if(err){
-      return res.send(err);
-    } else {
-      return res.status(200).send(user);
-    }
-  })
-};
-
 exports.getRecentQueries = function(req, res) {
   res.send(req.user.queries);
 };
